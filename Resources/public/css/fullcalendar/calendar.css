@@ -1,0 +1,35 @@
+#external-events h4 {
+		font-size: 16px;
+		margin-top: 0;
+		padding-top: 1em;
+		}
+		
+	.external-event { /* try to mimick the look of a real event */
+		margin: 10px 0;
+		padding: 2px 4px;
+		background: #6D3D92;
+		color: #fff;
+		font-size: .85em;
+		cursor: pointer;
+		border-radius: 3px;
+		}
+		
+	#external-events p {
+		margin: 1.5em 0;
+		font-size: 11px;
+		color: #666;
+		display: none;
+		}
+		
+	#external-events p input {
+		margin: 0;
+		vertical-align: middle;
+		}
+		
+		
+		
+	.fc-event-skin {
+		border-color: #6D3D92;
+		background-color: #6D3D92;
+		color: #FFF;
+	}

@@ -1,0 +1,5 @@
+fullcalendar_loader:
+    pattern: /fc-load-calendar-events
+    defaults: { _controller: ADesignsCalendarBundle:Calendar:loadCalendar }
+    options:
+        expose: true
