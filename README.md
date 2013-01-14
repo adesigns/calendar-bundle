@@ -1,14 +1,14 @@
 CalendarBundle - jQuery fullcalendar bundle.
 ===============
 
-This bundle allows you to integrate the [jQuery FullCalendar][http://arshaw.com/fullcalendar/] plugin into your Symfony2 application.
+This bundle allows you to integrate the [jQuery FullCalendar](http://arshaw.com/fullcalendar/) plugin into your Symfony2 application.
 
 Once installed, this bundle will use event listeners to load events from any bundle in your application.
 
 Installation
 ------------
 
-Before installing, please note that this bundle has a dependency on the [FOSJsRouting][https://github.com/FriendsOfSymfony/FOSJsRoutingBundle] bundle to expose the calendar AJAX event loader route.
+Before installing, please note that this bundle has a dependency on the [FOSJsRouting](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle) bundle to expose the calendar AJAX event loader route.
 
 ### Through Composer (Symfony 2.1+):
 
@@ -57,11 +57,11 @@ Usage
 Add the required stylesheet and javascripts to your layout:
 
 Stylesheet:    
-    <link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.css') }}" />
+    `<link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.css') }}" />`
     
 Javascript:
-    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/jquery.fullcalendar.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/calendar-settings.js') }}"></script>
+    `<script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/jquery.fullcalendar.min.js') }}"></script>`
+    `<script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/calendar-settings.js') }}"></script>`
     
 Then, in the template where you wish to display the calendar, add the following twig:
 
