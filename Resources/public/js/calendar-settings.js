@@ -11,13 +11,6 @@ $(function () {
 				right: 'month,basicWeek,basicDay,'
 			},
 			lazyFetching:true,
-			loading: function(isLoading, view) {
-                if (isLoading) {
-                    $('#indicator').show();
-                } else {
-                    $('#indicator').hide();
-                }
-            },
             timeFormat: {
                     // for agendaWeek and agendaDay
                     agenda: 'h:mmt', // 5:00 - 6:30
