@@ -12,47 +12,47 @@ class EventEntity
     /**
      * @var mixed Unique identifier of this event (optional).
      */
-    private $id;
+    protected $id;
     
     /**
      * @var string Title/label of the calendar event.
      */
-    private $title;
+    protected $title;
     
     /**
      * @var string URL Relative to current path.
      */
-    private $url;
+    protected $url;
     
     /**
      * @var string HTML color code for the bg color of the event label.
      */
-    private $bgColor;
+    protected $bgColor;
     
     /**
      * @var string HTML color code for the foregorund color of the event label.
      */
-    private $fgColor;
+    protected $fgColor;
     
     /**
      * @var string css class for the event label
      */
-    private $cssClass;
+    protected $cssClass;
     
     /**
      * @var \DateTime DateTime object of the event start date/time.
      */
-    private $startDatetime;
+    protected $startDatetime;
     
     /**
      * @var \DateTime DateTime object of the event end date/time.
      */
-    private $endDatetime;
+    protected $endDatetime;
     
     /**
      * @var boolean Is this an all day event?
      */
-    private $allDay = false;
+    protected $allDay = false;
     
     public function __construct($title, \DateTime $startDatetime, \DateTime $endDatetime = null, $allDay = false)
     {

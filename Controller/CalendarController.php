@@ -9,6 +9,12 @@ use ADesigns\CalendarBundle\Event\CalendarEvent;
 
 class CalendarController extends Controller
 {
+    /**
+     * Dispatch a CalendarEvent and return a JSON Response of any events returned.
+     * 
+     * @param Request $request
+     * @return Response
+     */
     public function loadCalendarAction(Request $request)
     {
         $startDatetime = new \DateTime();
