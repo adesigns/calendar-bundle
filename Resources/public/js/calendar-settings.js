@@ -11,20 +11,13 @@ $(function () {
 				right: 'month,basicWeek,basicDay,'
 			},
 			lazyFetching:true,
-			loading: function(isLoading, view) {
-                if (isLoading) {
-                    $('#indicator').show();
-                } else {
-                    $('#indicator').hide();
-                }
-            },
             timeFormat: {
                     // for agendaWeek and agendaDay
                     agenda: 'h:mmt', // 5:00 - 6:30
 
                     // for all other views
                     '': 'h:mmt{ - h:mmt}'            // 7p
-                },
+            },
 			eventSources: [
                     {
                         url: Routing.generate('fullcalendar_loader'), 
@@ -33,8 +26,6 @@ $(function () {
                            //alert('There was an error while fetching Google Calendar!');
                         }
                     }
-
-
 			]
 		});
 });

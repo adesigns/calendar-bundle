@@ -8,7 +8,7 @@ Once installed, this bundle will use event listeners to load events from any bun
 Installation
 ------------
 
-Before installing, please note that this bundle has a dependency on the [FOSJsRouting](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle) bundle to expose the calendar AJAX event loader route.
+Before installing, please note that this bundle has a dependency on the [FOSJsRouting](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle) bundle to expose the calendar AJAX event loader route.  Please ensure that the FOSJsRouting bundle is installed and configured before continuing.
 
 ### Through Composer (Symfony 2.1+):
 
@@ -47,9 +47,9 @@ adesigns_calendar:
   resource: "@ADesignsCalendarBundle/Resources/config/routing.xml"    
 ```
 
-Publish assets:
+Publish the assets:
 
-    $ php app/console assets:install --symlink web
+    $ php app/console assets:install web
     
 Usage
 -----
@@ -57,16 +57,20 @@ Usage
 Add the required stylesheet and javascripts to your layout:
 
 Stylesheet:    
-    `<link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.css') }}" />`
-    
+```
+<link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.css') }}" />
+```    
 Javascript:
-    `<script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/jquery.fullcalendar.min.js') }}"></script>`
-    `<script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/calendar-settings.js') }}"></script>`
-    
+```
+<script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/jquery/jquery-1.8.2.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/jquery.fullcalendar.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/calendar-settings.js') }}"></script>
+```    
 Then, in the template where you wish to display the calendar, add the following twig:
 
-    {% include 'ADesignsCalendarBundle::calendar.html.twig' %}
-    
+```
+{% include 'ADesignsCalendarBundle::calendar.html.twig' %}
+```   
 
 Adding Events
 -------------    
@@ -77,33 +81,36 @@ When a request is made to load events for a given start/end time, the bundle dis
 
 Create an Event Listener class in your bundle:
 
-	<?php
+``` php
+// src/Acme/DemoBundle/EventListener/CalendarEventListener.php	
 	
-	namespace Acme\DemoBundle\EventListener;
-	
-	use ADesigns\CalendarBundle\Event\CalendarEvent;
-	use ADesigns\CalendarBundle\Entity\EventEntity;
-	
-	class CalendarEventListener
+namespace Acme\DemoBundle\EventListener;
+
+use ADesigns\CalendarBundle\Event\CalendarEvent;
+use ADesigns\CalendarBundle\Entity\EventEntity;
+
+class CalendarEventListener
+{
+	public function loadEvents(CalendarEvent $calendarEvent)
 	{
-	    public function loadEvents(CalendarEvent $calendarEvent)
-	    {
-	       	$title = "Meeting";
-	       	$startDatetime = new \DateTime('2012-01-01 22:00:00');
-	       	$endDatetime = new \DateTime('2012-01-01 23:00:00');
-	       	
-	        $eventEntity = new EventEntity($title, $startDatetime, $endDatetime);
-	        $calendarEvent->addEvent($eventEntity);
-	    }
+		$title = "Meeting";
+		$startDatetime = new \DateTime('2012-01-01 22:00:00');
+		$endDatetime = new \DateTime('2012-01-01 23:00:00');
+		
+		$eventEntity = new EventEntity($title, $startDatetime, $endDatetime);
+		$calendarEvent->addEvent($eventEntity);
 	}
+}
+```
 
 Additional properties and customization of each event on the calendar can be found in the Entity/EventEntity class.
 	
 Then, add the listener to your services:
-
-    <service id="acme.demobundle.calendar_listener" class="Acme\DemoBundle\EventListener\CalendarEventListener">
-        <tag name="kernel.event_listener" event="calendar.load_events" method="loadEvents" />
-    </service>
+``` xml
+<service id="acme.demobundle.calendar_listener" class="Acme\DemoBundle\EventListener\CalendarEventListener">
+	<tag name="kernel.event_listener" event="calendar.load_events" method="loadEvents" />
+</service>
+```
 
 And that's it!  When the `ADesignsCalendarBundle::calendar.html.twig` template is rendered, any events within the current month/day/year will be pulled from your application.
 
