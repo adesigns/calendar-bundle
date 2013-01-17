@@ -16,7 +16,7 @@ $(function () {
                     agenda: 'h:mmt', // 5:00 - 6:30
 
                     // for all other views
-                    '': 'h:mmt{ - h:mmt}'            // 7p
+                    '': 'h:mmt'            // 7p
             },
 			eventSources: [
                     {
