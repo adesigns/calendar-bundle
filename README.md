@@ -82,7 +82,7 @@ When a request is made to load events for a given start/end time, the bundle dis
 Create an Event Listener class in your bundle:
 
 ``` php
-// src/Acme/DemoBundle/EventListener/CalendarEventListener.php	
+// src/Acme/DemoBundle/EventListener/CalendarEventListener.php  
 	
 namespace Acme\DemoBundle\EventListener;
 
