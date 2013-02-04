@@ -88,17 +88,37 @@ namespace Acme\DemoBundle\EventListener;
 
 use ADesigns\CalendarBundle\Event\CalendarEvent;
 use ADesigns\CalendarBundle\Entity\EventEntity;
+use Doctrine\ORM\EntityManager;
 
 class CalendarEventListener
 {
+	private $entityManager;
+	
+	public function __construct(EntityManager $entityManager)
+	{
+		$this->entityManager = $entityManager;
+	}
+	
 	public function loadEvents(CalendarEvent $calendarEvent)
 	{
-		$title = "Meeting";
-		$startDatetime = new \DateTime('2012-01-01 22:00:00');
-		$endDatetime = new \DateTime('2012-01-01 23:00:00');
+		$startDate = $calendarEvent->getStartDatetime();
+		$endDate = $calendarEvent->getEndDatetime();
+
+		// load events using your custom logic here,
+		// for instance, retrieving events from a repository
 		
-		$eventEntity = new EventEntity($title, $startDatetime, $endDatetime);
-		$calendarEvent->addEvent($eventEntity);
+		$companyEvents = $this->entityManager->getRepository('AcmeDemoBundle:MyCompanyEvents')
+			              ->createQueryBuilder('company_events')
+			              ->where('company_events.event_datetime BETWEEN :startDate and :endDate')
+			              ->setParameter('startDate', $startDate->format('Y-m-d H:i:s'))
+			              ->setParameter('endDate', $endDate->format('Y-m-d H:i:s'))
+			              ->getQuery()->getResults();
+		
+		              
+		foreach($companyEvents as $companyEvent) {
+		    $eventEntity = new EventEntity($companyEvent->getTitle(), $companyEvent->getStartDatetime(), $companyEvent->getEndDatetime());
+		      $calendarEvent->addEvent($eventEntity);
+		}
 	}
 }
 ```
@@ -108,6 +128,7 @@ Additional properties and customization of each event on the calendar can be fou
 Then, add the listener to your services:
 ``` xml
 <service id="acme.demobundle.calendar_listener" class="Acme\DemoBundle\EventListener\CalendarEventListener">
+	<argument type="service" id="doctrine.orm.entity_manager" />
 	<tag name="kernel.event_listener" event="calendar.load_events" method="loadEvents" />
 </service>
 ```
