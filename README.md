@@ -116,7 +116,13 @@ class CalendarEventListener
 		
 		              
 		foreach($companyEvents as $companyEvent) {
-		    $eventEntity = new EventEntity($companyEvent->getTitle(), $companyEvent->getStartDatetime(), $companyEvent->getEndDatetime());
+		
+		    // create an event with a start/end time, or an all day event
+		    if ($companyEvent->getAllDayEvent() === false) {
+		    	$eventEntity = new EventEntity($companyEvent->getTitle(), $companyEvent->getStartDatetime(), $companyEvent->getEndDatetime());
+		    } else {
+		    	$eventEntity = new EventEntity($companyEvent->getTitle(), $companyEvent->getStartDatetime(), null, true);
+		    }
 		    
 		    //optional calendar event settings
 		    $eventEntity->setAllDay(true); // default is false, set to true if this is an all day event
