@@ -96,7 +96,7 @@ class EventEntity
         }
         
         if ($this->cssClass !== null) {
-            $event['cssClass'] = $this->cssClass;
+            $event['className'] = $this->cssClass;
         }
 
         if ($this->endDatetime !== null) {
