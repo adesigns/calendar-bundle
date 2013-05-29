@@ -142,10 +142,17 @@ Additional properties and customization of each event on the calendar can be fou
 	
 Then, add the listener to your services:
 ``` xml
-<service id="acme.demobundle.calendar_listener" class="Acme\DemoBundle\EventListener\CalendarEventListener">
-	<argument type="service" id="doctrine.orm.entity_manager" />
-	<tag name="kernel.event_listener" event="calendar.load_events" method="loadEvents" />
-</service>
+<?xml version="1.0" ?>
+  <container xmlns="http://symfony.com/schema/dic/services">
+
+    <services>
+        <service id="acme.demobundle.calendar_listener" class="Acme\DemoBundle\EventListener\CalendarEventListener">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <tag name="kernel.event_listener" event="calendar.load_events" method="loadEvents" />
+        </service>
+
+    </services>
+  </container>
 ```
 
 And that's it!  When the `ADesignsCalendarBundle::calendar.html.twig` template is rendered, any events within the current month/day/year will be pulled from your application.
