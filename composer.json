@@ -13,7 +13,7 @@
         }
     ],
     "require": {
-        "symfony/framework-bundle": ">=2.0,<2.3-dev",
+        "symfony/framework-bundle": ">=2.1,<2.4-dev",
         "friendsofsymfony/jsrouting-bundle": ">=1.0,<1.2",
         "doctrine/collections": ">=1.0"
     },
