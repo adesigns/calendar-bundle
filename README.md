@@ -10,6 +10,16 @@ Installation
 
 Before installing, please note that this bundle has a dependency on the [FOSJsRouting](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle) bundle to expose the calendar AJAX event loader route.  Please ensure that the FOSJsRouting bundle is installed and configured before continuing.
 
+The javascript dependencies (Jquery and fullcalendar) will be installed through composer [components](https://github.com/RobLoach/component-installer). Make sure to include the component config into your composer.json to install them in the correct directory. See the component installer documentation for more information about this. 
+
+``` js composer.json
+  ...
+  "config": {
+        "component-dir": "web/components",
+        "component-baseurl": "/components"
+    }
+```    
+
 ### Through Composer (Symfony 2.1+):
 
 Add the following lines in your `composer.json` file:
@@ -56,14 +66,16 @@ Usage
 
 Add the required stylesheet and javascripts to your layout:
 
+(Don't forget the jsrouting configuration!)
+
 Stylesheet:    
 ```
-<link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.css') }}" />
+<link rel="stylesheet" href="{{ asset('components/fullcalendar/fullcalendar/fullcalendar.css') }}" />
 ```    
 Javascript:
 ```
-<script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/jquery/jquery-1.8.2.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/jquery.fullcalendar.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('components/jquery/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('components/fullcalendar/fullcalendar/jquery.fullcalendar.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/calendar-settings.js') }}"></script>
 ```    
 Then, in the template where you wish to display the calendar, add the following twig:
