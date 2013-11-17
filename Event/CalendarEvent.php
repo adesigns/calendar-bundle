@@ -3,6 +3,7 @@
 namespace ADesigns\CalendarBundle\Event;
 
 use Symfony\Component\EventDispatcher\Event;
+use Symfony\Component\HttpFoundation\Request;
 
 use ADesigns\CalendarBundle\Entity\EventEntity;
 
@@ -19,6 +20,8 @@ class CalendarEvent extends Event
     
     private $endDatetime;
     
+    private $request;
+
     private $events;
     
     /**
@@ -27,10 +30,11 @@ class CalendarEvent extends Event
      * @param \DateTime $start Begin datetime to use
      * @param \DateTime $end End datetime to use
      */
-    public function __construct(\DateTime $start, \DateTime $end)
+    public function __construct(\DateTime $start, \DateTime $end, Request $request = null)
     {
         $this->startDatetime = $start;
         $this->endDatetime = $end;
+        $this->request = $request;
         $this->events = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -64,4 +68,8 @@ class CalendarEvent extends Event
         return $this->endDatetime;
     }
 
+    public function getRequest()
+    {
+        return $this->request;
+    }
 }
