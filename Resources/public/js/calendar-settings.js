@@ -22,6 +22,10 @@ $(function () {
                     {
                         url: Routing.generate('fullcalendar_loader'), 
 						type: 'POST',
+						// A way to add custom filters to your event listeners
+						data: {
+              			  filter: 'balblabl'
+            			},
                         error: function() {
                            //alert('There was an error while fetching Google Calendar!');
                         }
