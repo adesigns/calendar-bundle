@@ -179,8 +179,7 @@ eventSources: [
             type: 'POST',
             // A way to add custom filters to your event listeners
             data: {
-                myCustomFilter: 'green_events',
-                anotherCustomFilter: 'new_events'
+                filter: 'my_custom_filter_param'
             },
             error: function() {
                //alert('There was an error while fetching Google Calendar!');
