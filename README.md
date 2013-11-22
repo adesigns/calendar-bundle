@@ -121,7 +121,13 @@ class CalendarEventListener
 			              ->setParameter('endDate', $endDate->format('Y-m-d H:i:s'))
 			              ->getQuery()->getResults();
 
-
+	    // $companyEvents and $companyEvent in this example
+	    // represent entities from your database, NOT instances of EventEntity
+	    // within this bundle.
+	    //
+	    // Create EventEntity instances and populate it's properties with data
+	    // from your own entities/database values.
+	    
 		foreach($companyEvents as $companyEvent) {
 
 		    // create an event with a start/end time, or an all day event
