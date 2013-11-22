@@ -123,11 +123,11 @@ class EventEntity
         $this->title = $title;
     }
     
-    public function getTitle($title) 
+    public function getTitle() 
     {
         return $this->title;
     }
-    
+
     public function setUrl($url)
     {
         $this->url = $url;
