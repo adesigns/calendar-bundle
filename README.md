@@ -119,7 +119,7 @@ class CalendarEventListener
 			              ->where('company_events.event_datetime BETWEEN :startDate and :endDate')
 			              ->setParameter('startDate', $startDate->format('Y-m-d H:i:s'))
 			              ->setParameter('endDate', $endDate->format('Y-m-d H:i:s'))
-			              ->getQuery()->getResults();
+			              ->getQuery()->getResult();
 
 	    // $companyEvents and $companyEvent in this example
 	    // represent entities from your database, NOT instances of EventEntity
