@@ -58,16 +58,31 @@ class CalendarEvent extends Event
         return $this;
     }
     
+    /**
+     * Get start datetime 
+     * 
+     * @return \DateTime
+     */
     public function getStartDatetime()
     {
         return $this->startDatetime;
     }
 
+    /**
+     * Get end datetime 
+     * 
+     * @return \DateTime
+     */
     public function getEndDatetime()
     {
         return $this->endDatetime;
     }
 
+    /**
+     * Get request
+     * 
+     * @return Request
+     */
     public function getRequest()
     {
         return $this->request;
