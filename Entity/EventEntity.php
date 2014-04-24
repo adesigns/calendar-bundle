@@ -53,6 +53,11 @@ class EventEntity
      * @var boolean Is this an all day event?
      */
     protected $allDay = false;
+
+    /**
+     * @var array Non-standard fields
+     */
+    protected $otherFields = array();
     
     public function __construct($title, \DateTime $startDatetime, \DateTime $endDatetime = null, $allDay = false)
     {
@@ -66,6 +71,7 @@ class EventEntity
         
         $this->endDatetime = $endDatetime;
     }
+
     /**
      * Convert calendar event details to an array
      * 
@@ -104,6 +110,10 @@ class EventEntity
         }
         
         $event['allDay'] = $this->allDay;
+
+        foreach ($this->otherFields as $field => $value) {
+            $event[$field] = $value;
+        }
         
         return $event;
     }
@@ -196,5 +206,26 @@ class EventEntity
     public function getAllDay()
     {
         return $this->allDay;
+    }
+
+    /**
+     * @param string $name
+     * @param string $value
+     */
+    public function addField($name, $value)
+    {
+        $this->otherFields[$name] = $value;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function removeField($name)
+    {
+        if (!array_key_exists($name, $this->otherFields)) {
+            return;
+        }
+
+        unset($this->otherFields[$name]);
     }
 }
