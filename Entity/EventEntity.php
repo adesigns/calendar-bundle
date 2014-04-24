@@ -53,8 +53,8 @@ class EventEntity
      * @var boolean Is this an all day event?
      */
     protected $allDay = false;
-    
-    public function __construct($title, \DateTime $startDatetime, \DateTime $endDatetime = null, $allDay = false)
+
+    public function __construct($title, \DateTime $startDatetime, \DateTime $endDatetime = null, $allDay = true)
     {
         $this->title = $title;
         $this->startDatetime = $startDatetime;
@@ -80,8 +80,8 @@ class EventEntity
         }
         
         $event['title'] = $this->title;
-        $event['start'] = $this->startDatetime->format("Y-m-d\TH:i:sP");
-        
+        $event['start'] = $this->startDatetime->format("Y-m-d\tH:i:sP");
+
         if ($this->url !== null) {
             $event['url'] = $this->url;
         }
@@ -100,7 +100,7 @@ class EventEntity
         }
 
         if ($this->endDatetime !== null) {
-            $event['end'] = $this->endDatetime->format("Y-m-d\TH:i:sP");
+            $event['end'] = $this->endDatetime->format("Y-m-d\tH:i:sP");
         }
         
         $event['allDay'] = $this->allDay;
