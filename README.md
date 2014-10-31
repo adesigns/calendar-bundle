@@ -14,15 +14,9 @@ Before installing, please note that this bundle has a dependency on the [FOSJsRo
 
 Add the following lines in your `composer.json` file:
 
-``` js
-"require": {
-    "adesigns/calendar-bundle": "dev-master"
-}
+```sh
+composer require adesigns/calendar-bundle
 ```
-
-Run Composer to download and install the bundle:
-
-    $ php composer.phar update adesigns/calendar-bundle
 
 Register the bundle in `app/AppKernel.php`:
 
