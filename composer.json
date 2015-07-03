@@ -12,15 +12,48 @@
             "role": "Developer"
         }
     ],
+    "repositories": {
+        "arshaw/fullcalendar": {
+            "type": "package",
+            "package": {
+                "name": "components/fullcalendar",
+                "type": "component",
+                "version": "2.3.2",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/arshaw/fullcalendar/archive/v2.3.2.zip"
+                },
+                "extra": {
+                    "component": {
+                        "scripts": [
+                            "fullcalendar/fullcalendar.min.js"
+                        ],
+                        "styles": [
+                            "fullcalendar/fullcalendar.css"
+                        ]
+                    }
+                },
+                "require": {
+                    "robloach/component-installer": "*"
+                }
+            }
+        }
+    },
     "require": {
         "symfony/symfony": "~2.1",
         "friendsofsymfony/jsrouting-bundle": "~1.1",
-        "doctrine/collections": ">=1.0"
+        "doctrine/collections": ">=1.0",
+        "components/jquery": ">=1.7.1",
+        "components/fullcalendar": "2.3.2"
     },
     "autoload": {
         "psr-0": {
             "ADesigns\\CalendarBundle": ""
         }
     },
-    "target-dir": "ADesigns/CalendarBundle"
+    "target-dir": "ADesigns/CalendarBundle",
+    "config": {
+        "component-dir": "web/components",
+        "component-baseurl": "/components"
+    }
 }

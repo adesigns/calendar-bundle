@@ -18,6 +18,10 @@ $(function () {
             // for all other views
             '': 'h:mmt'         // 7p
         },
+        //Set to True to show Calendar Week in seperate Row/Field of Calendar View
+        weekNumbers: false,
+        //Set to your Language to change the text, the first day of week etc acording to yout settings.
+        lang: 'en',
         eventSources: [
             {
                 url: Routing.generate('fullcalendar_loader'),
@@ -26,7 +30,7 @@ $(function () {
                 data: {
                 },
                 error: function() {
-                   //alert('There was an error while fetching Google Calendar!');
+                    //alert('There was an error while fetching Google Calendar!');
                 }
             }
         ]
