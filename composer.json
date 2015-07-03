@@ -31,10 +31,10 @@
                 "extra": {
                     "component": {
                         "scripts": [
-                            "fullcalendar-2.3.2/dist/fullcalendar.min.js"
+                            "dist/fullcalendar.min.js"
                         ],
                         "styles": [
-                            "fullcalendar-2.3.2/dist/fullcalendar.css"
+                            "dist/fullcalendar.css"
                         ]
                     }
                 },
