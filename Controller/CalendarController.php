@@ -19,6 +19,18 @@ class CalendarController extends Controller
     {
         $startDatetime = \DateTime::createFromFormat('Y-m-d', $request->get('start'));
         $endDatetime = \DateTime::createFromFormat('Y-m-d', $request->get('end'));
+
+        // backwards compat for fullcalendar < 2.0
+        if (empty($startDatetime)) {
+            $startDatetime = new \DateTime();
+            $startDatetime->setTimestamp($request->get('start'));
+        }
+        
+        // backwards compat for fullcalendar < 2.0
+        if (empty($endDatetime)) {
+            $endDatetime = new \DateTime();
+            $endDatetime->setTimestamp($request->get('end'));
+        }
         
         $events = $this->container->get('event_dispatcher')->dispatch(CalendarEvent::CONFIGURE, new CalendarEvent($startDatetime, $endDatetime, $request))->getEvents();
         
