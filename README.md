@@ -12,7 +12,7 @@ Before installing, please note that this bundle has a dependency on the [FOSJsRo
 
 The javascript dependencies (Jquery and fullcalendar) will be installed through composer [components](https://github.com/RobLoach/component-installer). Make sure to include the component config into your composer.json to install them in the correct directory. See the component installer documentation for more information about this. 
 
-``` js composer.json
+``` js
   ...
   "config": {
         "component-dir": "web/components",
@@ -26,7 +26,7 @@ Add the following lines in your `composer.json` file:
 
 ``` js
 "require": {
-    "adesigns/calendar-bundle": "dev-master"
+    "adesigns/calendar-bundle": "1.2"
 }
 ```
 

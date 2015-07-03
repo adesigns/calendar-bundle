@@ -25,7 +25,7 @@ class CalendarController extends Controller
             $startDatetime = new \DateTime();
             $startDatetime->setTimestamp($request->get('start'));
         }
-        
+
         // backwards compat for fullcalendar < 2.0
         if (empty($endDatetime)) {
             $endDatetime = new \DateTime();
