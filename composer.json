@@ -23,6 +23,11 @@
                     "type": "zip",
                     "url": "https://github.com/arshaw/fullcalendar/archive/v2.3.2.zip"
                 },
+                "source": {
+                    "url": "https://github.com/arshaw/fullcalendar.git",
+                    "type": "git",
+                    "reference": "2.3.2"
+                },
                 "extra": {
                     "component": {
                         "scripts": [
@@ -44,7 +49,7 @@
         "friendsofsymfony/jsrouting-bundle": "~1.1",
         "doctrine/collections": ">=1.0",
         "components/jquery": ">=1.7.1",
-        "arshaw/fullcalendar": "2.3.2"
+        "arshaw/fullcalendar": "*"
     },
     "autoload": {
         "psr-0": {
