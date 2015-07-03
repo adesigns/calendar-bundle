@@ -12,11 +12,11 @@
             "role": "Developer"
         }
     ],
-    "repositories": {
-        "arshaw/fullcalendar": {
+    "repositories": [
+        {
             "type": "package",
             "package": {
-                "name": "components/fullcalendar",
+                "name": "arshaw/fullcalendar",
                 "type": "component",
                 "version": "2.3.2",
                 "dist": {
@@ -26,10 +26,10 @@
                 "extra": {
                     "component": {
                         "scripts": [
-                            "fullcalendar/fullcalendar.min.js"
+                            "fullcalendar-2.3.2/dist/fullcalendar.min.js"
                         ],
                         "styles": [
-                            "fullcalendar/fullcalendar.css"
+                            "fullcalendar-2.3.2/dist/fullcalendar.css"
                         ]
                     }
                 },
@@ -38,13 +38,13 @@
                 }
             }
         }
-    },
+    ],
     "require": {
         "symfony/symfony": "~2.1",
         "friendsofsymfony/jsrouting-bundle": "~1.1",
         "doctrine/collections": ">=1.0",
         "components/jquery": ">=1.7.1",
-        "components/fullcalendar": "2.3.2"
+        "arshaw/fullcalendar": "2.3.2"
     },
     "autoload": {
         "psr-0": {
