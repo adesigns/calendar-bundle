@@ -16,17 +16,17 @@
         {
             "type": "package",
             "package": {
-                "name": "arshaw/fullcalendar",
+                "name": "fullcalendar/fullcalendar",
                 "type": "component",
-                "version": "2.3.2",
+                "version": "2.4.0",
                 "dist": {
                     "type": "zip",
-                    "url": "https://github.com/arshaw/fullcalendar/archive/v2.3.2.zip"
+                    "url": "https://github.com/fullcalendar/fullcalendar/archive/v2.4.0.zip"
                 },
                 "source": {
-                    "url": "https://github.com/arshaw/fullcalendar.git",
+                    "url": "https://github.com/fullcalendar/fullcalendar.git",
                     "type": "git",
-                    "reference": "2.3.2"
+                    "reference": "2.4.0"
                 },
                 "extra": {
                     "component": {
@@ -49,7 +49,7 @@
         "friendsofsymfony/jsrouting-bundle": "~1.1",
         "doctrine/collections": ">=1.0",
         "components/jquery": ">=1.7.1",
-        "arshaw/fullcalendar": "*"
+        "fullcalendar/fullcalendar": "*"
     },
     "autoload": {
         "psr-0": {
