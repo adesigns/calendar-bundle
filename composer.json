@@ -49,7 +49,7 @@
         "friendsofsymfony/jsrouting-bundle": "~1.1",
         "doctrine/collections": ">=1.0",
         "components/jquery": ">=1.7.1",
-        "fullcalendar/fullcalendar": "*"
+        "fullcalendar/fullcalendar": "^2.4"
     },
     "autoload": {
         "psr-0": {
