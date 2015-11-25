@@ -56,6 +56,27 @@
             "ADesigns\\CalendarBundle": ""
         }
     },
+    "extra": {
+        "component": {
+            "fullcalendar/fullcalendar": {
+                "scripts": [
+                    "dist/fullcalendar.js",
+                    "dist/gcal.js",
+                    "dist/lang-all.js"
+                ],
+                "styles": [
+                    "dist/fullcalendar.css",
+                    "dist/fullcalendar.print.css"
+                ],
+                "files": [
+                    "dist/fullcalendar.min.js",
+                    "dist/fullcalendar.min.css",
+                    "dist/fullcalendar.print.css",
+                    "dist/lang-all.js"
+                ]
+            }
+        }
+    },
     "target-dir": "ADesigns/CalendarBundle",
     "config": {
         "component-dir": "web/components",
