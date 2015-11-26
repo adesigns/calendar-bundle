@@ -74,8 +74,9 @@ Stylesheet:
 ```    
 Javascript:
 ```
+<script type="text/javascript" src="{{ asset('components/moment/min/moment.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('components/jquery/jquery.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('components/fullcalendar/fullcalendar/jquery.fullcalendar.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('components/fullcalendar/dist/jquery.fullcalendar.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/calendar-settings.js') }}"></script>
 ```    
 Then, in the template where you wish to display the calendar, add the following twig:
