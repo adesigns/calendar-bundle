@@ -1,0 +1,5 @@
+services:
+  calendar_event.test:
+    class: ADesigns\CalendarBundle\Tests\Fixtures\EventListener\CalendarEventListener
+    tags:
+     - { name: kernel.event_listener, event: calendar.load_events, method: loadEvents }
