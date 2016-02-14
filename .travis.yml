@@ -39,9 +39,9 @@ before_install:
   - pip install --user codecov
 
 after_success:
-  - codecov
+  - bash <(curl -s https://codecov.io/bash)
 
 install: composer update --prefer-dist --no-interaction $COMPOSER_FLAGS
 
 script:
-  - phpunit
+  - vendor/bin/phpunit --coverage-clover=coverage.xml
