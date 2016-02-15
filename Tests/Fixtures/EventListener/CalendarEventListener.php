@@ -13,9 +13,10 @@ class CalendarEventListener
 {
     const TEST_START_TIME = "2016-01-15 13:00";
     const TEST_END_TIME = "2016-01-15 14:00";
+
     public function loadEvents(CalendarEvent $calendarEvent)
     {
-        // these
+
         $startTime = new \DateTime(self::TEST_START_TIME);
         $endTime = new \DateTime(self::TEST_END_TIME);
 
