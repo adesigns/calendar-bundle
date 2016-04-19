@@ -1,5 +1,6 @@
-CalendarBundle - jQuery fullcalendar bundle.
+CalendarBundle - jQuery FullCalendar bundle.
 ===============
+[![Latest Stable Version](https://poser.pugx.org/adesigns/calendar-bundle/v/stable)](https://packagist.org/packages/adesigns/calendar-bundle) [![Total Downloads](https://poser.pugx.org/adesigns/calendar-bundle/downloads)](https://packagist.org/packages/adesigns/calendar-bundle) [![Latest Unstable Version](https://poser.pugx.org/adesigns/calendar-bundle/v/unstable)](https://packagist.org/packages/adesigns/calendar-bundle) [![License](https://poser.pugx.org/adesigns/calendar-bundle/license)](https://packagist.org/packages/adesigns/calendar-bundle)
 
 This bundle allows you to integrate the [jQuery FullCalendar](http://arshaw.com/fullcalendar/) plugin into your Symfony2 application.
 
@@ -14,15 +15,9 @@ Before installing, please note that this bundle has a dependency on the [FOSJsRo
 
 Add the following lines in your `composer.json` file:
 
-``` js
-"require": {
-    "adesigns/calendar-bundle": "dev-master"
-}
+```sh
+composer require adesigns/calendar-bundle
 ```
-
-Run Composer to download and install the bundle:
-
-    $ php composer.phar update adesigns/calendar-bundle
 
 Register the bundle in `app/AppKernel.php`:
 
