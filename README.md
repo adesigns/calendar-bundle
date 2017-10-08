@@ -9,8 +9,6 @@ Once installed, this bundle will use event listeners to load events from any bun
 Installation
 ------------
 
-Before installing, please note that this bundle has a dependency on the [FOSJsRouting](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle) bundle to expose the calendar AJAX event loader route.  Please ensure that the FOSJsRouting bundle is installed and configured before continuing.
-
 ### Through Composer (Symfony 2.1+):
 
 Add the following lines in your `composer.json` file:
@@ -59,6 +57,7 @@ Javascript:
 ```
 <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/jquery/jquery-1.8.2.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/jquery.fullcalendar.min.js') }}"></script>
+<script type="text/javascript">var fcLoaderRoute = "{{ path('fullcalendar_loader') }}";</script>
 <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/calendar-settings.js') }}"></script>
 ```    
 Then, in the template where you wish to display the calendar, add the following twig:
@@ -176,7 +175,7 @@ custom filters to your event listeners by adding extra parameters in the eventSo
 ``` javascript
 eventSources: [
         {
-            url: Routing.generate('fullcalendar_loader'),
+            url: fcLoaderRoute,
             type: 'POST',
             // A way to add custom filters to your event listeners
             data: {
